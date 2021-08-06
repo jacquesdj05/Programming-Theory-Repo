@@ -1001,9 +1001,7 @@ MonoBehaviour:
   - {fileID: 3256591186673885695, guid: 95a98426b199e4a3f91443fd7f2419d3, type: 3}
   - {fileID: 8546569914153388683, guid: a9c9f5700f8234127aa93b7829d1d7ec, type: 3}
   enemyPrefabs:
-  - {fileID: 4837214537499672656, guid: 174740a6e7f39422494f2b52bd72b796, type: 3}
   - {fileID: 7211412100241317787, guid: a8e268b65486946a8a85d550c4447a17, type: 3}
-  - {fileID: 1011447623956704884, guid: e15acb44fe07a41dba587dbdd6be99a6, type: 3}
 --- !u!4 &1449084009
 Transform:
   m_ObjectHideFlags: 0
@@ -1202,7 +1200,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8985804319895344873, guid: 7fa63b87cbb4843dcb24574fd12da58d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 9.49
       objectReference: {fileID: 0}
     - target: {fileID: 8985804319895344873, guid: 7fa63b87cbb4843dcb24574fd12da58d, type: 3}
       propertyPath: m_LocalRotation.w

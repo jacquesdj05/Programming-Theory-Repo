@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Player_Zone
+  - Spawn_Zone
+  - Enemy_Zone
+  - PlayerUnit
+  - EnemyUnit
   layers:
   - Default
   - TransparentFX

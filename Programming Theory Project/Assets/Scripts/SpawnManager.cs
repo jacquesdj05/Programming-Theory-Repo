@@ -23,7 +23,7 @@ public class SpawnManager : MonoBehaviour
             enemySpawnPoints[i] = GameObject.Find("Enemy Spawn " + i).transform.position;
         }
 
-        InvokeRepeating("SpawnEnemies", 1.0f, 2.0f);
+        //InvokeRepeating("SpawnEnemies", 1.0f, 2.0f);
     }
 
     // Update is called once per frame
@@ -41,12 +41,17 @@ public class SpawnManager : MonoBehaviour
         {
             SpawnPlayerUnits(2);
         }
+        else if(Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            SpawnEnemies();
+        }
     }
 
     void SpawnEnemies()
     {
-        int randomEnemy = Random.Range(0, 3);
-        int randomSpawnPoint = Random.Range(0, 3);
+        int randomEnemy = Random.Range(0, enemyPrefabs.Length);
+        //int randomSpawnPoint = Random.Range(0, enemySpawnPoints.Length);
+        int randomSpawnPoint = 1;
 
         Instantiate(enemyPrefabs[randomEnemy], enemySpawnPoints[randomSpawnPoint], transform.rotation);
     }

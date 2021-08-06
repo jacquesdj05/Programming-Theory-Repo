@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyUnit : Unit
+public class PlayerUnit : Unit
 {
     private void Update()
     {
@@ -11,14 +11,14 @@ public class EnemyUnit : Unit
 
     private void OnTriggerStay(Collider other)
     {
-        //Debug.Log("Enemy Collided with " + other.gameObject.name);
+        //Debug.Log("Player unit Collided with " + other.gameObject.name);
 
-        if (other.CompareTag("PlayerUnit"))
+        if (other.CompareTag("EnemyUnit"))
         {
             DealDamage(other);
         }
 
-        if (other.CompareTag("Player_Zone"))
+        if (other.CompareTag("Enemy_Zone"))
         {
             Destroy(gameObject);
         }
