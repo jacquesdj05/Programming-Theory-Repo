@@ -12,7 +12,7 @@ public abstract class Unit : MonoBehaviour
     protected float attackPower;
     protected float speed;
 
-    protected int cost;
+    public int cost;
 
     [SerializeField]
     protected Unit opponentUnit;

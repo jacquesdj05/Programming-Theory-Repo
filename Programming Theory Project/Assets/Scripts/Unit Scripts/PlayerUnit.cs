@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class PlayerUnit : Unit
 {
+    PlayerController playerController;
+
+    private void Awake()
+    {
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+    }
+
     private void Update()
     {
         MoveAcross();
@@ -20,5 +27,11 @@ public class PlayerUnit : Unit
         {
             Destroy(gameObject);
         }
+    }
+
+    protected void ChargeUnitCost()
+    {
+        Debug.Log("Instantiated a " + gameObject.name + " costing " + cost);
+        playerController.credits -= cost;
     }
 }

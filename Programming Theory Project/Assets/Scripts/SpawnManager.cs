@@ -23,7 +23,7 @@ public class SpawnManager : MonoBehaviour
             enemySpawnPoints[i] = GameObject.Find("Enemy Spawn " + i).transform.position;
         }
 
-        //InvokeRepeating("SpawnEnemies", 1.0f, 2.0f);
+        InvokeRepeating("SpawnEnemies", 1.0f, 2.0f);
     }
 
     // Update is called once per frame
@@ -31,7 +31,14 @@ public class SpawnManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            SpawnPlayerUnits(0);
+            if (playerController.credits >= playerPrefabs[0].GetComponent<Unit>().cost)
+            {
+                SpawnPlayerUnits(0);
+            }
+            else
+            {
+                Debug.Log("No Cash!");
+            }
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
@@ -41,10 +48,10 @@ public class SpawnManager : MonoBehaviour
         {
             SpawnPlayerUnits(2);
         }
-        else if(Input.GetKeyDown(KeyCode.Alpha9))
-        {
-            SpawnEnemies();
-        }
+        //else if(Input.GetKeyDown(KeyCode.Alpha9))
+        //{
+        //    SpawnEnemies();
+        //}
     }
 
     void SpawnEnemies()
@@ -64,6 +71,8 @@ public class SpawnManager : MonoBehaviour
         if (playerZone != 0)
         {
             Instantiate(playerPrefabs[unit], playerSpawnPoints[playerZone - 1], transform.rotation);
+            //playerController.credits -= playerPrefabs[unit].GetComponent<Unit>().cost;
         }
+
     }
 }

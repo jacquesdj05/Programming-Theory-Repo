@@ -9,10 +9,12 @@ public class PlayerController : MonoBehaviour
 
     public int currentZone;
 
+    public int credits;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        credits = 100;
     }
 
     // Update is called once per frame
