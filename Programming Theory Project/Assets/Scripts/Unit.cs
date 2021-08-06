@@ -8,21 +8,18 @@ public abstract class Unit : MonoBehaviour
     /// Base class from which the player and enemy units derive their characteristics
     /// </summary>
 
-    [SerializeField]
     protected float health;
-    [SerializeField]
     protected float attackPower;
-    [SerializeField]
     protected float speed;
 
     protected int cost;
 
     [SerializeField]
-    private bool isMoving = true;
+    protected Unit opponentUnit;
 
     public virtual void MoveAcross()
     {
-        if (isMoving)
+        if (opponentUnit == null)   // checks if the unit is currently colliding with an opponent
         {
             transform.Translate(Vector3.right * speed * Time.deltaTime);
         }
@@ -31,21 +28,13 @@ public abstract class Unit : MonoBehaviour
     public virtual void DealDamage(Collider other)
     {
         // deal damage to opponent's unit or base
-        isMoving = false;
 
-        Unit opponentUnit = other.gameObject.GetComponent<Unit>();
+        opponentUnit = other.gameObject.GetComponent<Unit>();
         
         health -= opponentUnit.attackPower * Time.deltaTime;
-        //Debug.Log("Health: " + health);
-
-        if (opponentUnit.health < 0)
-        {
-            isMoving = true;
-        }
 
         if (health < 0)
         {
-            //opponentUnit.isMoving = true;
             Destroy(gameObject);
         }
     }

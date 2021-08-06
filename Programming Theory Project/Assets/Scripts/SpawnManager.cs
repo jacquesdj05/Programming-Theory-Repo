@@ -41,19 +41,20 @@ public class SpawnManager : MonoBehaviour
         {
             SpawnPlayerUnits(2);
         }
-        else if(Input.GetKeyDown(KeyCode.Alpha0))
+        else if(Input.GetKeyDown(KeyCode.Alpha9))
         {
-            SpawnEnemies();
+            SpawnEnemies(1);
         }
     }
 
-    void SpawnEnemies()
+    void SpawnEnemies(int unit)
     {
         int randomEnemy = Random.Range(0, enemyPrefabs.Length);
-        //int randomSpawnPoint = Random.Range(0, enemySpawnPoints.Length);
-        int randomSpawnPoint = 1;
+        int randomSpawnPoint = Random.Range(0, enemySpawnPoints.Length);
 
-        Instantiate(enemyPrefabs[randomEnemy], enemySpawnPoints[randomSpawnPoint], transform.rotation);
+        Instantiate(enemyPrefabs[unit], enemySpawnPoints[1], transform.rotation);
+        //Instantiate(enemyPrefabs[randomEnemy], enemySpawnPoints[randomSpawnPoint], transform.rotation);
+
     }
 
     public void SpawnPlayerUnits(int unit)

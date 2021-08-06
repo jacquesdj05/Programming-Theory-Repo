@@ -11,8 +11,6 @@ public class EnemyUnit : Unit
 
     private void OnTriggerStay(Collider other)
     {
-        //Debug.Log("Enemy Collided with " + other.gameObject.name);
-
         if (other.CompareTag("PlayerUnit"))
         {
             DealDamage(other);
