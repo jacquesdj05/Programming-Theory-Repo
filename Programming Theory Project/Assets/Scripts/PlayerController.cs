@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     private float speed = 10f;
     private float zBound = 6.5f;
 
-    public int currentZone;
+    public int currentZone { get; private set; }
 
     public int credits;
 
@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         credits = 100;
+
+        InvokeRepeating("IncreaseCredits", 2f, 2f);
     }
 
     // Update is called once per frame
@@ -71,5 +73,12 @@ public class PlayerController : MonoBehaviour
         {
             currentZone = 0;
         }
+    }
+
+    private void IncreaseCredits()
+    {
+        int inceaseAmount = 5;
+
+        credits += inceaseAmount;
     }
 }
