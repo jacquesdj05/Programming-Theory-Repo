@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   opponentUnit: {fileID: 0}
+  cost: 5
 --- !u!1001 &2776269198677999755
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,6 +12,6 @@ public class MediumPlayer : PlayerUnit
 
         cost = 15;
 
-        ChargeUnitCost();
+        //ChargeUnitCost();
     }
 }

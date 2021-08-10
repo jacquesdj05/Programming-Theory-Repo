@@ -31,27 +31,40 @@ public class SpawnManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            if (playerController.credits >= playerPrefabs[0].GetComponent<Unit>().cost)
-            {
-                SpawnPlayerUnits(0);
-            }
-            else
-            {
-                Debug.Log("No Cash!");
-            }
+            int spawnUnit = 0;
+
+            CheckSpawnUnit(spawnUnit);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            SpawnPlayerUnits(1);
+            int spawnUnit = 1;
+
+            CheckSpawnUnit(spawnUnit);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            SpawnPlayerUnits(2);
+            int spawnUnit = 2;
+
+            CheckSpawnUnit(spawnUnit);
         }
-        //else if(Input.GetKeyDown(KeyCode.Alpha9))
+        //else if(Input.GetKeyDown(KeyCode.Alpha9)) // used for testing
         //{
         //    SpawnEnemies();
         //}
+    }
+
+    void CheckSpawnUnit(int spawnUnit)
+    {
+        if (playerController.credits - playerPrefabs[spawnUnit].GetComponent<PlayerUnit>().cost >= 0)
+        {
+
+            SpawnPlayerUnits(spawnUnit);
+            ChargeUnitCost(spawnUnit);
+        }
+        else
+        {
+            Debug.Log("Not Enough Cash!");
+        }
     }
 
     void SpawnEnemies()
@@ -59,7 +72,7 @@ public class SpawnManager : MonoBehaviour
         int randomEnemy = Random.Range(0, enemyPrefabs.Length);
         int randomSpawnPoint = Random.Range(0, enemySpawnPoints.Length);
 
-        //Instantiate(enemyPrefabs[randomEnemy], enemySpawnPoints[1], transform.rotation);
+        //Instantiate(enemyPrefabs[randomEnemy], enemySpawnPoints[1], transform.rotation); // TESTING
         Instantiate(enemyPrefabs[randomEnemy], enemySpawnPoints[randomSpawnPoint], transform.rotation);
 
     }
@@ -74,5 +87,13 @@ public class SpawnManager : MonoBehaviour
             //playerController.credits -= playerPrefabs[unit].GetComponent<Unit>().cost;
         }
 
+    }
+
+    private void ChargeUnitCost(int unit)
+    {
+        int cost = playerPrefabs[unit].GetComponent<PlayerUnit>().cost;
+
+        Debug.Log("Instantiated a " + playerPrefabs[unit].name + " costing " + cost);
+        playerController.credits -= cost;
     }
 }

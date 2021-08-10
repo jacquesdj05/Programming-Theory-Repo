@@ -126,10 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 413c4913e4dfa4d0f91b845989d0c201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  attackPower: 0
-  speed: 0
-  isMoving: 1
+  opponentUnit: {fileID: 0}
+  cost: 10
 --- !u!1001 &7504380022091545921
 PrefabInstance:
   m_ObjectHideFlags: 0

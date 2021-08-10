@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LightPlayer : PlayerUnit
 {
+    //int unitCost = 5;
+
     void Start()
     {
         health = 2.5f;
@@ -12,6 +14,6 @@ public class LightPlayer : PlayerUnit
 
         cost = 5;
 
-        ChargeUnitCost();
+        //ChargeUnitCost();
     }
 }

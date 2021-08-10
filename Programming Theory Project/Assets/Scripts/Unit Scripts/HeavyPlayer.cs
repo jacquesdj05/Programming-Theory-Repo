@@ -13,6 +13,6 @@ public class HeavyPlayer : PlayerUnit
 
         cost = 25;
 
-        ChargeUnitCost();
+        //ChargeUnitCost();
     }
 }

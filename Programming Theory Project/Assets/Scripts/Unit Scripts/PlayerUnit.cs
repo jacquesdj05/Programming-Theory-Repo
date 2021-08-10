@@ -6,6 +6,8 @@ public class PlayerUnit : Unit
 {
     PlayerController playerController;
 
+    public int cost;
+
     private void Awake()
     {
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
@@ -29,9 +31,9 @@ public class PlayerUnit : Unit
         }
     }
 
-    protected void ChargeUnitCost()
-    {
-        Debug.Log("Instantiated a " + gameObject.name + " costing " + cost);
-        playerController.credits -= cost;
-    }
+    //public void ChargeUnitCost()
+    //{
+    //    Debug.Log("Instantiated a " + gameObject.name + " costing " + cost);
+    //    playerController.credits -= cost;
+    //}
 }
